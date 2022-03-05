@@ -1,11 +1,6 @@
 <?php
 session_start();
 include("conexao.php");	
-$email = base64_decode($_SESSION['usuario_inserido']);
-$sqlbusca = "SELECT * FROM arquivos WHERE email = '{$email}'";
-$sqlbuscaexec = mysqli_query($conn, $sqlbusca);
-$rowsbusca = mysqli_num_rows($sqlbuscaexec);
-$dados = mysqli_fetch_assoc($sqlbuscaexec);
 if(isset($_GET['sair']))
 {
 	unset($_SESSION["usuario_inserido"]);
@@ -128,7 +123,13 @@ if(!isset($_GET['user'])){
 <?php
 }
 else{
-	
+	if(!isset($_GET['sair'])){
+		$email = base64_decode($_SESSION['usuario_inserido']);
+		$sqlbusca = "SELECT * FROM arquivos WHERE email = '{$email}'";
+		$sqlbuscaexec = mysqli_query($conn, $sqlbusca);
+		$rowsbusca = mysqli_num_rows($sqlbuscaexec);
+		$dados = mysqli_fetch_assoc($sqlbuscaexec);
+	}
 ?>
 <!DOCTYPE html>
 <html>
