@@ -17,6 +17,7 @@ if(!isset($_GET['user']))
 <html>
 	<head>
 		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="../Styles/profile.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="../Styles/SignUp.css">
 		<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
@@ -43,7 +44,7 @@ else{
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" type="text/css" href="../Styles/stylesheet.css">
+		<link rel="stylesheet" type="text/css" href="../Styles/profile.css">
 		<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,9 +60,9 @@ else{
 			Seus dados
 		</h1>
 		<div>
-			<table border="1px solid">
+			<table class="table" >
 			<tr><th>Nome</th><th>email</th></tr>
-			<tr><td><?php echo $nome ?></td><td><?php echo $email?></td>
+			<tr><td><?php echo $nome ?></td><td class="email"><?php echo $email?></td>
 			</tr>
 			</table>
 		</div>
@@ -84,30 +85,19 @@ else{
 				$sqlbuscaexec = mysqli_query($conn, $sqlbusca);
 				$rowsbusca = mysqli_num_rows($sqlbuscaexec);
 				$dados = mysqli_fetch_assoc($sqlbuscaexec);
-				if($rowsbusca == 0){
+				if($rowsbusca == 0 and isset($_GET['user'])){
 				?>
-            	<img src="https://i.pinimg.com/originals/54/38/19/543819d33dfcfe997f6c92171179e4cd.png" id="uploadPreview" style="width: 110px; height: 110px;">
+            	<img class="profileimage" src="https://i.pinimg.com/originals/54/38/19/543819d33dfcfe997f6c92171179e4cd.png" id="uploadPreview" style="width: 110px; height: 110px;">
 				<?php } 
-				else
+				else if($rowsbusca != 0 and isset($_GET['user']))
 				{
 				?>
 				<img src="upload/<?php echo $dados['arquivo']?>" id="uploadPreview" style="width: 110px; height: 110px;">
 				<?php } ?>
 		</label>  
         <input id="uploadImage" type="file" name="foto" onchange="PreviewImage();">
-		<input type="submit" value="enviar"></form>
+		<input class="buttons" type="submit" value="enviar nova foto"></form>
     </div>
-			<style type="text/css">
-			#uploadPreview{
-				cursor: pointer;
-				background-color: #eee;
-    			border: 5px solid #ccc;
-    			border-radius: 50%;
-			}
-			#uploadImage{
-				display: none;
-			}
-			</style>
 			<?php 
 			if(isset($_FILES['foto']))
 			{

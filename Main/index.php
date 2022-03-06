@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("conexao.php");	
+
 if(isset($_GET['sair']))
 {
 	unset($_SESSION["usuario_inserido"]);
@@ -29,7 +30,7 @@ if(!isset($_GET['user'])){
 		<header>
 			<nav>
 				<ul>
-					<li><a class="login" href="#g1">gallery</a></li>
+					<li><a class="login" href="#g1">
 					<li>request</li>
 					<li><a class="login" href="#g2">nft</a></li>
 					<li><a class="signuplink" href="SignUp.php">sign up</a></li>
@@ -130,6 +131,7 @@ else{
 		$rowsbusca = mysqli_num_rows($sqlbuscaexec);
 		$dados = mysqli_fetch_assoc($sqlbuscaexec);
 	}
+	
 ?>
 <!DOCTYPE html>
 <html>
@@ -152,11 +154,11 @@ else{
 		<header>
 			<nav>
 				<ul>
-					<li><a class="login" href ="profile.php? 
+					<li><a class="myprofile" href ="profile.php? 
 					<?php echo "user=" . $_SESSION['usuario_inserido'] ?>" > my profile <?php 
 					if($rowsbusca == 0){
 				?>
-				<img src="https://i.pinimg.com/originals/54/38/19/543819d33dfcfe997f6c92171179e4cd.png" id="uploadPreview" style="width: 40px; height: 40px;">
+				<img class="profileimage" src="https://i.pinimg.com/originals/54/38/19/543819d33dfcfe997f6c92171179e4cd.png" id="uploadPreview" style="width: 40px; height: 40px;">
 				<?php } 
 				 else
 				{
@@ -166,7 +168,7 @@ else{
 					<li><a class="login" href="#g1">gallery</a></li>
 					<li>request</li>
 					<li><a class="login" href="#g2">nft</a></li>
-					<li><a class="signuplink" href="index.php?sair=true">log off</a></li>
+					<li><a class="logoff" href="index.php?sair=true">log off</a></li>
 				</ul>
 			</nav>
 		</header>

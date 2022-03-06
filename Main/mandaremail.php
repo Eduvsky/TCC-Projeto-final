@@ -1,6 +1,9 @@
 <?php
-include("conexao.php");
 session_start();
+include("conexao.php");
+ini_set("SMTP","smtp.gmail.com" );
+ini_set("smtp_port","587");
+ini_set('sendmail_from', 'sendmailbot123321@gmail.com');    
 
 if(isset($_POST['emailrecover'])){
     $email = mysqli_real_escape_string($conn, $_POST['emailrecover']);}
@@ -32,13 +35,13 @@ if ($row != 0){
     $query = "INSERT INTO codigos SET codigo = '{$codigo}', data = '$data_expirar'";
     $insert = mysqli_query($conn, $query);
     if($insert){
-    if(mail($destinatario, $assunto, $corpo, $headers))
-    {
-        $_SESSION['success'] = true;
-        header('Location: recoverpword.php');
-        exit;
+        if(mail($destinatario, $assunto, $corpo, $headers))
+        {
+            $_SESSION['success'] = true;
+            header('Location: recoverpword.php');
+            exit;
+        }
     }
-}
 }
 ?>
 </html>
