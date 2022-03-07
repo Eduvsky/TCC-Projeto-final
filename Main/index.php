@@ -119,6 +119,13 @@ if(!isset($_GET['user'])){
  				<button>OpenSea</button>
  			</section>
  		</div>
+ 		<div class="request">
+ 			<h2>Request your custom art</h2>
+ 			<h3>You can ask for a custom total unique art, just tell me what you want down here (copyright included this time, its totally yours)</h3>
+
+ 			<input type="text" name="text">
+ 			<button>Send</button>
+ 		</div>
 	</body>
 </html>
 <?php
@@ -251,6 +258,14 @@ else{
  				<button>Mintable</button>
  				<button>OpenSea</button>
  			</section>
+ 		</div>
+ 		<div class="request">
+ 			<h2>Request your custom art</h2>
+ 			<hr style="height:1px;width: 300px; background-color:gray;border:none;margin-left: 510px;margin-top: -20px; position: relative;right: 60px;" noshade /> <br>
+ 			<h3>You can ask for a custom total unique art just tell me what you want down here <br>(copyright included this time, its totally yours)</h3>
+
+ 			<textarea></textarea>
+ 			<button>Send</button>
  		</div>
 	</body>
 </html>

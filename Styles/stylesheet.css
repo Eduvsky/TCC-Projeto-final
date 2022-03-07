@@ -321,3 +321,56 @@ nav{
 	color: white;
 }
 
+.request{
+	font-family: 'Lato', sans-serif;
+    font-family: 'PT Mono', monospace;
+    font-family: 'Roboto Mono', monospace;
+    font-family: 'Roboto Slab', serif;
+	position: relative;
+	bottom: 1200px;
+	left: 250px;
+}
+
+.request h2{
+	color: white;
+	font-size: 35px;
+}
+
+.request h3{
+	margin-top: 8px;
+	color: #949b9e;
+    letter-spacing: 1.5px;
+    font-size: 20px;
+}
+
+.request textarea{
+	position: relative;
+	top: 50px;
+	left: 50px;
+	width: 300px;
+	height: 100px;
+	border: 2px dashed darkred;
+	background-color: whitesmoke;
+	font-size: 20px;
+	font-weight: bolder;
+}
+
+.request button{
+	position: relative;
+	left: 150px;
+	height: 40%;
+	width: 130px;
+  	border: none;
+  	padding: 18px;
+  	font-family: 'Rubik', sans-serif;
+  	cursor: pointer;
+  	text-transform: uppercase;
+  	background: #e8e9ec;
+  	color: black;
+  	border-bottom-left-radius: 4px;
+  	border-bottom-right-radius: 0;
+  	letter-spacing: 0.5px;
+  	outline: 0;
+  	-webkit-transition: all .3s;
+  	transition: all .3s;	font-weight: bolder;
+}
